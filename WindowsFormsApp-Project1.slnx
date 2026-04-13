@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WindowsFormsApp-Project1/WindowsFormsApp-Project1.csproj" Id="10d5dc90-aee1-4c8f-801b-73e4972f5bdf" />
+  <Project Path="WindowsFormsApp-ProjectInstaller/WindowsFormsApp-ProjectInstaller.vdproj" Type="Installer" />
+</Solution>
