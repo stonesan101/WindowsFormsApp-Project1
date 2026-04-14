@@ -63,20 +63,33 @@ namespace WindowsFormsApp_Project1
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (txtBookId.Text == "" || txtBookTitle.Text == "" || txtBookAuthor.Text == "" || txtStock.Text == "") { return; }
+            if (txtBookId.Text == "" || txtBookTitle.Text == "" || txtBookAuthor.Text == "" || txtStock.Text == "")
+            {
+                MessageBox.Show("Please fill out all fields");
+                return;
+            }
             querySQL("INSERT INTO Books(BookId, BookTitle, BookAuthor, Stock) VALUES('" + int.Parse(txtBookId.Text) + "','" + txtBookTitle.Text + "','" + txtBookAuthor.Text + "','" + int.Parse(txtStock.Text) + "')");
             MessageBox.Show("Record saved successfully");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (txtBookId.Text == "")
+            {
+                MessageBox.Show("Please enter the BookId");
+                return;
+            }
             querySQL("DELETE FROM Books WHERE BookId='" + int.Parse(txtBookId.Text) + "'");
             MessageBox.Show("Data Deleted Successfully");
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtBookId.Text == "" || txtBookTitle.Text == "" || txtBookAuthor.Text == "" || txtStock.Text == "") { return; }
+            if (txtBookId.Text == "" || txtBookTitle.Text == "" || txtBookAuthor.Text == "" || txtStock.Text == "")
+            {
+                MessageBox.Show("Please fill out all fields");
+                return;
+            }
             querySQL("UPDATE Books SET BookTitle='" + txtBookTitle.Text + "', BookAuthor='" + txtBookAuthor.Text + "', Stock='" + int.Parse(txtStock.Text) + "' WHERE BookId='" + int.Parse(txtBookId.Text) + "'");
             MessageBox.Show("Data Updated Successfully");
         }
@@ -88,9 +101,14 @@ namespace WindowsFormsApp_Project1
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            connection.Open();
             string searchTerm = txtSearch.Text;
 
+            if (searchTerm == "")
+            {
+                MessageBox.Show("Please enter search criteria");
+                return;
+            }
+            connection.Open();
             SqlCommand query = new SqlCommand("SELECT * FROM Books WHERE BookTitle LIKE '%" + searchTerm + "%' OR BookAuthor LIKE '%" + searchTerm + "%'", connection);
             SqlDataAdapter adapter = new SqlDataAdapter(query);
             DataTable dataTable = new DataTable();
