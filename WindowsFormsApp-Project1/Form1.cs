@@ -46,6 +46,7 @@ namespace WindowsFormsApp_Project1
             txtBookTitle.Text = "";
             txtBookAuthor.Text = "";
             txtStock.Text = "";
+            txtSearch.Text = "";
         }
 
         private void querySQL(string commandText)

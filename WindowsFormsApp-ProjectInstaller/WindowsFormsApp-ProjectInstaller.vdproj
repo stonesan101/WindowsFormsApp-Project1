@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_15E8DED7F3904907B2D68CDA31AFF906"
+        "MsmKey" = "8:_09513320F2764767B586D705840AE354"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -40,13 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E8ACA7C021BEE803E8DFDD7C189887E7"
+        "OwnerKey" = "8:_98FE7119AAED4ECFB90488BC5E0797FB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_98FE7119AAED4ECFB90488BC5E0797FB"
+        "OwnerKey" = "8:_E8ACA7C021BEE803E8DFDD7C189887E7"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -67,6 +67,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -83,6 +99,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -112,7 +136,7 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_15E8DED7F3904907B2D68CDA31AFF906"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_09513320F2764767B586D705840AE354"
             {
             "SourcePath" = "8:..\\WindowsFormsApp-Project1\\bin\\Debug\\WindowsFormsApp-Project1.pdb"
             "TargetName" = "8:WindowsFormsApp-Project1.pdb"
@@ -240,7 +264,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WindowsFormsApp-ProjectInstaller"
         "ProductCode" = "8:{63211EFB-249B-407A-9B04-BB551FEFDA72}"
-        "PackageCode" = "8:{8771E742-BA41-474A-9A40-8F0A57C24832}"
+        "PackageCode" = "8:{1CA180E6-AFD5-46F4-BE8B-91C07FCF693F}"
         "UpgradeCode" = "8:{D8BD5B6B-CF8E-42B8-A3BB-8B8143EA20E0}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
