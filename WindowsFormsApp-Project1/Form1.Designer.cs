@@ -51,6 +51,8 @@
             this.booksTableAdapter = new WindowsFormsApp_Project1.WindowsFormAppDataSetTableAdapters.BooksTableAdapter();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnOutOfStock = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsFormAppDataSet)).BeginInit();
@@ -123,7 +125,7 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(45, 175);
+            this.btnInsert.Location = new System.Drawing.Point(45, 161);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 8;
@@ -133,7 +135,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(126, 175);
+            this.btnUpdate.Location = new System.Drawing.Point(126, 161);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 9;
@@ -143,7 +145,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(207, 175);
+            this.btnDelete.Location = new System.Drawing.Point(207, 161);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 10;
@@ -153,7 +155,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(288, 175);
+            this.btnCancel.Location = new System.Drawing.Point(288, 161);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -171,11 +173,11 @@
             this.bookAuthorDataGridViewTextBoxColumn,
             this.stockDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.booksBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(45, 274);
+            this.dataGridView.Location = new System.Drawing.Point(45, 219);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(728, 150);
+            this.dataGridView.Size = new System.Drawing.Size(728, 205);
             this.dataGridView.TabIndex = 12;
             // 
             // bookIdDataGridViewTextBoxColumn
@@ -226,14 +228,14 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(126, 229);
+            this.txtSearch.Location = new System.Drawing.Point(249, 190);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(318, 22);
             this.txtSearch.TabIndex = 13;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(45, 229);
+            this.btnSearch.Location = new System.Drawing.Point(168, 190);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 14;
@@ -241,11 +243,34 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnOutOfStock
+            // 
+            this.btnOutOfStock.Location = new System.Drawing.Point(573, 189);
+            this.btnOutOfStock.Name = "btnOutOfStock";
+            this.btnOutOfStock.Size = new System.Drawing.Size(156, 23);
+            this.btnOutOfStock.TabIndex = 15;
+            this.btnOutOfStock.Text = "Show Out Of Stock";
+            this.btnOutOfStock.UseVisualStyleBackColor = true;
+            this.btnOutOfStock.Click += new System.EventHandler(this.btnOutOfStock_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(45, 192);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(107, 20);
+            this.checkBox1.TabIndex = 16;
+            this.checkBox1.Text = "Only In-Stock";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.btnOutOfStock);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dataGridView);
@@ -296,6 +321,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnOutOfStock;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

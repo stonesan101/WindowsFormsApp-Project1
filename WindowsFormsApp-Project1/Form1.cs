@@ -8,6 +8,7 @@ namespace WindowsFormsApp_Project1
     public partial class Form1 : Form
     {
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=WindowsFormApp;Integrated Security=True");
+        Boolean shouldFilter = false;
 
         public Form1()
         {
@@ -28,6 +29,10 @@ namespace WindowsFormsApp_Project1
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT * FROM Books";
+            if (shouldFilter)
+            {
+                cmd.CommandText += " WHERE Stock > 0";
+            }
             cmd.ExecuteNonQuery();
             DataTable dataTable = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -109,7 +114,16 @@ namespace WindowsFormsApp_Project1
                 return;
             }
             connection.Open();
-            SqlCommand query = new SqlCommand("SELECT * FROM Books WHERE BookTitle LIKE '%" + searchTerm + "%' OR BookAuthor LIKE '%" + searchTerm + "%'", connection);
+            string queryString = "";
+            if (shouldFilter)
+            {
+                queryString += "SELECT * FROM Books WHERE BookTitle LIKE '%" + searchTerm + "%' AND Stock > 0 OR BookAuthor LIKE '%" + searchTerm + "%' AND Stock > 0";
+            }
+            else
+            {
+                queryString += "SELECT * FROM Books WHERE BookTitle LIKE '%" + searchTerm + "%' OR BookAuthor LIKE '%" + searchTerm + "%'";
+            }
+            SqlCommand query = new SqlCommand(queryString, connection);
             SqlDataAdapter adapter = new SqlDataAdapter(query);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -121,6 +135,33 @@ namespace WindowsFormsApp_Project1
             else
             {
                 MessageBox.Show("No results found for the search term: " + searchTerm);
+            }
+            connection.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            shouldFilter = checkBox1.Checked;
+            connection.Open();
+            displayData();
+            connection.Close();
+        }
+
+        private void btnOutOfStock_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            SqlCommand query = new SqlCommand("SELECT * FROM Books WHERE Stock = 0", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(query);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                dataGridView.DataSource = dataTable;
+            }
+            else
+            {
+                MessageBox.Show("No out-of-stock books found.");
             }
             connection.Close();
         }
